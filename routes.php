@@ -1,13 +1,11 @@
 <?php
-// routes.php
-
 require_once 'app/controllers/UserController.php';
-
 $controller = new UserController();
+$controller->index();
 
 $url = $_SERVER['REQUEST_URI'];
 
-if ($url == '/user/index' || $url == '/') {
+if ($url == '/user' || $url == '/') {
     $controller->index();
 } elseif ($url == '/user/create') {
     $controller->create();

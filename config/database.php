@@ -1,10 +1,10 @@
 <?php
 // config/database.php
 class Database {
-    private $host = 'localhost';
-    private $db_name = 'mvc';
-    private $username = 'root';
-    private $password = '';
+    private $host = 'mdi.my.id';
+    private $db_name = 'basdeat2_klp1';
+    private $username = 'basdeat2_usr1';
+    private $password = 'k3JF@q@hX%X=Ug^C7)';
     private $conn;
 
     public function connect() {
@@ -17,4 +17,8 @@ class Database {
         }
         return $this->conn;
     }
+//     public function rowCount() {
+//         return $this->conn->rowCount();
+//     }
 }
+
