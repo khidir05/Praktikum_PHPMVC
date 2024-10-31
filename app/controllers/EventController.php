@@ -18,7 +18,8 @@ class EventController
         $events = $this->eventModel->getAll();
         $success = getFlashMessage('success');
         $error = getFlashMessage('error');
-        require __DIR__ . '/../views/index.php';
+        require __DIR__ . '/../views/events/sidebar.php';
+        require __DIR__ . '/../views/events/index.php';
     }
 
     public function add()
@@ -45,7 +46,8 @@ class EventController
                 $error = 'Uploading photo failed!';
             }
         }
-        require __DIR__ . '/../views/add.php';
+        require __DIR__ . '/../views/events/sidebar.php';
+        require __DIR__ . '/../views/events/add.php';
     }
 
     public function edit($id)
@@ -86,7 +88,8 @@ class EventController
         }
 
         $event = $this->eventModel->get($id);
-        require __DIR__ . '/../views/edit.php';
+        require __DIR__ . '/../views/events/sidebar.php';
+        require __DIR__ . '/../views/events/edit.php';
     }
 
     public function delete($id)
