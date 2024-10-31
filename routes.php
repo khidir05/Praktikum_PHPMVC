@@ -1,16 +1,46 @@
 <?php
+// routes.php
+
+require_once 'app/controllers/SponsorController.php';
 require_once 'app/controllers/AgendaController.php';
-$controller = new AgendaController();
-$action = $_GET['action'] ?? 'index';
-$id = $_GET['id'] ?? null;
+// require_once 'app/controllers/EventsController.php';
+// require_once 'app/controllers/PesertaController.php';
 
-if ($action === 'create') {
-    $controller->create();
-} elseif ($action === 'edit' && $id) {
-    $controller->edit($id);
-} elseif ($action === 'delete' && $id) {
-    $controller->delete($id);
-} else {
-    $controller->index();
-}
+$sponsorController = new SponsorController();
+$agendaController = new AgendaController();
+// $eventsController = new EventsController();
+// $pesertaController = new PesertaController();
 
+$url = $_SERVER['REQUEST_URI'];
+
+if ($url == '/' || $url == '/sponsor') {
+        $sponsorController->index();
+    } elseif ($url == '/sponsor/create') {
+        $sponsorController->create();
+    } elseif ($url == '/sponsor/store') {
+        $sponsorController->store();
+    } elseif (strpos($url, '/sponsor/edit') !== false) {
+        $id = $_GET['id'];
+        $sponsorController->edit($id);
+    } elseif ($url == '/sponsor/update') {
+        $sponsorController->update();
+    } elseif (strpos($url, '/sponsor/hapus') !== false) {
+        $id = $_GET['id'];
+        $sponsorController->hapus($id);
+    } elseif ($url == '/agenda') {
+        $agendaController->index();
+    } elseif ($url == '/agenda?action=create') {
+        $agendaController->create();
+    } elseif ($url == '/agenda/store') {
+        $agendaController->store();
+    } elseif (strpos($url, '/agenda/edit') !== false) {
+        $id = $_GET['id'];
+        $agendaController->edit($id);
+    } elseif ($url == '/agenda/update') {
+        $agendaController->update();
+    } elseif (strpos($url, '/agenda/hapus') !== false) {
+        $id = $_GET['id'];
+        $agendaController->hapus($id);
+    }else {
+        echo "404 Not Found";
+    }
