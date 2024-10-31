@@ -1,26 +1,16 @@
 <?php
-// routes.php
+require_once 'app/controllers/AgendaController.php';
+$controller = new AgendaController();
+$action = $_GET['action'] ?? 'index';
+$id = $_GET['id'] ?? null;
 
-require_once 'app/controllers/SponsorController.php';
-
-$controller = new SponsorController();
-
-$url = $_SERVER['REQUEST_URI'];
-
-if ($url == '/sponsor' || $url == '/') {
+if ($action === 'create') {
+    $controller->create();
+} elseif ($action === 'edit' && $id) {
+    $controller->edit($id);
+} elseif ($action === 'delete' && $id) {
+    $controller->delete($id);
+} else {
     $controller->index();
-    } elseif ($url == '/sponsor/create') {
-        $controller->create();
-    } elseif ($url == '/sponsor/store') {
-        $controller->store();
-    }elseif (strpos($url, '/sponsor/edit') !== false) {
-        $id = $_GET['id'];
-        $controller->edit($id);
-    } elseif ($url == '/sponsor/update') {
-        $controller->update();
-    } elseif (strpos($url, '/sponsor/hapus') !== false) {
-        $id = $_GET['id'];
-        $controller->hapus($id);
-    } else {
-        echo "404 Not Found";
-    }
+}
+
