@@ -37,14 +37,14 @@ class Agenda {
         }
     }
 
-    public function updateSponsor($id, $nama, $start_date, $end_date, $description, $location) {
-        $query = $this->db->prepare("UPDATE sponsor SET 
+    public function updateAgenda($id, $nama, $start_date, $end_date, $description, $location) {
+        $query = $this->db->prepare("UPDATE agenda SET 
                 nama = ?, 
                 start_date = ?, 
                 end_date = ?, 
                 description = ?,
                 location = ?
-                WHERE id = ?");
+                WHERE id_agenda = ?");
                 
             $query->execute([
                 $nama,

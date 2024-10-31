@@ -52,37 +52,61 @@ class AgendaController {
 
     public function edit($id) {
         $agenda = $this->agendaModel->getAgendaById($id);
+        if (!$agenda) {
+            header('Location: /agenda');
+            exit;
+        }
+    
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Check if the required fields are set
+            if (isset($_POST['nama'], $_POST['start_date'], $_POST['end_date'], $_POST['description'], $_POST['location'])) {
+                $nama = $_POST['nama'];
+                $start_date = $_POST['start_date'];
+                $end_date = $_POST['end_date'];
+                $description = $_POST['description'];
+                $location = $_POST['location'];
+    
+                $this->agendaModel->updateAgenda($id, $nama, $start_date, $end_date, $description, $location);
+                $_SESSION['flash_message'] = 'success_update';
+                header('Location: /agenda');
+                exit; // Ensure to exit after header redirection
+            } else {
+                // Handle the case when required fields are missing
+                $_SESSION['flash_message'] = 'error_missing_fields';
+            }
+        }
+    
         require_once '../app/views/agenda/edit.php';
     }
 
-    public function update($id) {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $nama_agenda = $_POST['nama_agenda'];
-            $start_date = $_POST['start_date'];
-            $end_date = $_POST['end_date'];
-            $description = $_POST['description'];
-            $location = $_POST['location'];
+    // public function update($id) {
+    //     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    //         $nama_agenda = $_POST['nama_agenda'];
+    //         $start_date = $_POST['start_date'];
+    //         $end_date = $_POST['end_date'];
+    //         $description = $_POST['description'];
+    //         $location = $_POST['location'];
     
-            // Debugging
-            var_dump($_POST); // Lihat data yang diterima
-            var_dump($id); // Pastikan ID yang diterima benar
+    //         // Debugging
+    //         var_dump($_POST); // Lihat data yang diterima
+    //         var_dump($id); // Pastikan ID yang diterima benar
     
-            if ($this->agendaModel->updateAgenda($id, $nama_agenda, $start_date, $end_date, $description, $location)) {
-                header('Location: /agenda');
-                exit;
-            } else {
-                echo "Gagal memperbarui data."; // Pesan kesalahan jika update gagal
-            }
-        } else {
-            $agenda = $this->agendaModel->getAgendaById($id);
-            if (!$agenda) {
-                header('Location: /agenda');
-                exit;
-            }
-        }
+    //         if ($this->agendaModel->updateAgenda($id, $nama_agenda, $start_date, $end_date, $description, $location)) {
+    //             header('Location: /agenda');
+    //             exit;
+    //         } else {
+    //             echo "Gagal memperbarui data."; // Pesan kesalahan jika update gagal
+    //         }
+    //     } else {
+    //         $agenda = $this->agendaModel->getAgendaById($id);
+    //         if (!$agenda) {
+    //             header('Location: /agenda');
+    //             exit;
+    //         }
+    //     }
         
-        require_once '../app/views/agenda/edit.php';
-    }
+    //     require_once '../app/views/agenda/edit.php';
+    // }
 
     public function delete($id) {
         if($this->agendaModel->deleteAgenda($id)) {

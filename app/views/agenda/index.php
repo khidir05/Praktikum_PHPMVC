@@ -87,7 +87,6 @@
                                 </table>
                               </div>
                             </div>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah data</button>
                           </div>
                         </div>
                       </div>
@@ -110,96 +109,6 @@
                 </div>
             </div>
         </footer>
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-              <div class="row gx-3 justify-content-center">
-                <div class="text-center my-5">
-                  <h2 class="display-8 fw-bolder"><span class="text-gradient d-inline">Make your days pretty</span></h2>
-                      <p class="lead fw-light mb-7">By Managing your time today!</p>
-                   </div>
-                  </div>
-                  <form action="" method="POST">
-                      <div class="form-floating mb-3">
-                          <input class="form-control" id="nama_agenda" name="nama_agenda" type="text" required />
-                          <label for="nama_agenda">Agenda's name</label>
-                      </div>
-                      <div class="form-floating mb-3">
-                          <input class="form-control" id="start_date" name="start_date" type="datetime-local" required />
-                          <label for="start_date">Start time</label>
-                      </div>
-                      <div class="form-floating mb-3">
-                          <input class="form-control" id="end_date" name="end_date" type="datetime-local" required />
-                          <label for="end_date">End time</label>
-                      </div>
-                      <div class="form-floating mb-3">
-                          <input class="form-control" id="description" name="description" type="text" />
-                          <label for="description">Description</label>
-                      </div>
-                      <div class="form-floating mb-3">
-                          <input class="form-control" id="location" name="location" type="text" required />
-                          <label for="location">Location</label>
-                      </div>
-                      <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <button type="submit" class="btn btn-primary">Save changes</button>
-                      </div>
-                  </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <script>
-    function showAlert(type, message) {
-        Swal.fire({
-            icon: type,
-            title: message,
-            showConfirmButton: false,
-            timer: 1500
-        });
-    }
-
-    function confirmDelete(url) {
-        Swal.fire({
-            title: 'Apakah Anda yakin?',
-            text: "Data yang dihapus tidak dapat dikembalikan!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#d33',
-            cancelButtonColor: '#3085d6',
-            confirmButtonText: 'Ya, hapus!',
-            cancelButtonText: 'Batal'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = url;
-            }
-        });
-    }
-
-    <?php 
-    if(isset($_SESSION['flash_message'])) {
-        switch($_SESSION['flash_message']) {
-            case 'success_add':
-                echo "showAlert('success', 'Data berhasil ditambahkan!');";
-                break;
-            case 'success_update':
-                echo "showAlert('success', 'Data berhasil diperbarui!');";
-                break;
-            case 'success_delete':
-                echo "showAlert('success', 'Data berhasil dihapus!');";
-                break;
-            case 'error':
-                echo "showAlert('error', 'Terjadi kesalahan!');";
-                break;
-        }
-        unset($_SESSION['flash_message']);
-    }
-    ?>
 </script>
         <!-- Bootstrap core JS-->
        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
