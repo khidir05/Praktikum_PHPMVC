@@ -11,10 +11,12 @@ class SponsorController {
 
     public function index() {
         $sponsors = $this->sponsorModel->getAllSponsors();
+        require_once '../app/views/sponsor/sidebar.php';
         require_once '../app/views/sponsor/index.php';
     }
 
     public function create() {
+        require_once '../app/views/sponsor/sidebar.php';
         require_once '../app/views/sponsor/create.php';
     }
 
@@ -35,6 +37,7 @@ class SponsorController {
 
     public function edit($id) {
         $sponsor = $this->sponsorModel->getSponsorById($id);
+        require_once '../app/views/sponsor/sidebar.php';
         require_once '../app/views/sponsor/edit.php';
     }
     
