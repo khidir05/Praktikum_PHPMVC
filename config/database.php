@@ -10,15 +10,16 @@ class Database {
     public function connect() {
         $this->conn = null;
         try {
-            $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
+            $this->conn = new PDO(
+                "mysql:host=" . $this->host . ";dbname=" . $this->db_name,
+                $this->username,
+                $this->password
+            );
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $this->conn;
         } catch(PDOException $e) {
-            echo "Connection error: " . $e->getMessage();
+            error_log("Connection error: " . $e->getMessage());
+            throw new PDOException("Database connection failed: " . $e->getMessage());
         }
-        return $this->conn;
     }
-//     public function rowCount() {
-//         return $this->conn->rowCount();
-//     }
 }
-
