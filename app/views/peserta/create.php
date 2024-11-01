@@ -24,11 +24,11 @@
                         <input type="text" name="contact" class="form-control" placeholder="Kontak" required>
                     </div>
                     <div class="mb-3">
-                        <label for="event_pilihan" class="form-label">Event yang Dipilih</label>
-                        <select name="event_pilihan" class="form-control" required>
-                            <option value="">Pilih Event</option>
+                        <label for="nama_event" class="form-label">Nama Event</label>
+                        <select name="nama_event" class="form-control" required>
+                            <option value="" selected disabled>Pilih Event</option>
                             <?php foreach ($events as $event) { ?>
-                            <option value="<?= $event['id']; ?>"><?= $event['title']; ?>
+                            <option value="<?= $event['title']; ?>"><?= $event['title']; ?>
                             </option>
                             <?php } ?>
                         </select>

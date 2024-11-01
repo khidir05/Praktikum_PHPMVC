@@ -26,6 +26,19 @@
                         <input type="text" name="contact" class="form-control" value="<?php echo $peserta['kontak']; ?>"
                             required>
                     </div>
+                    <div class="mb-3">
+                        <label for="event_pilihan" class="form-label">Event yang Dipilih</label>
+                        <select name="event_pilihan" class="form-control" required>
+                            <option value="" <?= ($peserta['event_pilihan'] == '') ? 'selected' : ''; ?> disabled>Pilih
+                                Event</option>
+                            <?php foreach ($events as $event) { ?>
+                            <option value="<?= $event['title']; ?>"
+                                <?= ($peserta['event_pilihan'] == $event['title']) ? 'selected' : ''; ?>>
+                                <?= $event['title']; ?>
+                            </option>
+                            <?php } ?>
+                        </select>
+                    </div>
                     <button type="submit" class="btn btn-primary">Update</button>
                     <a href="/peserta" class="btn btn-secondary">Kembali</a>
                 </form>

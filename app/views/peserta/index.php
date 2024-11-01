@@ -22,6 +22,7 @@
                         <tr>
                             <th>Nama</th>
                             <th>Kontak</th>
+                            <th>Event Pilihan</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -30,6 +31,7 @@
                         <tr>
                             <td><?php echo $p['nama']; ?></td>
                             <td><?php echo $p['kontak']; ?></td>
+                            <td><?php echo $p['event_pilihan']; ?></td>
                             <td>
                                 <a href="/peserta/edit?id=<?php echo $p['id']; ?>"
                                     class="btn btn-warning btn-sm">Edit</a>

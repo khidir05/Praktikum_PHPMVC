@@ -53,13 +53,13 @@
                     <h4 class="text-primary">Admin Panel</h4>
                 </div>
                 <div class="nav flex-column">
-                    <a href="/sponsor" class="nav-link active">
+                    <a href="/sponsor" class="nav-link">
                         <i class="fas fa-handshake me-2"></i> Sponsors
                     </a>
                     <a href="/agenda" class="nav-link">
                         <i class="fas fa-calendar-alt me-2"></i> Agenda
                     </a>
-                    <a href="/events" class="nav-link">
+                    <a href="/events" class="nav-link active">
                         <i class="fas fa-calendar-check me-2"></i> Events
                     </a>
                     <a href="/peserta" class="nav-link">

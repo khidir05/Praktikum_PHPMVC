@@ -1,12 +1,15 @@
 <?php 
 
 require_once '../app/models/Sponsor.php';
+require_once  '../app/models/Event.php';
 
 class SponsorController {
     protected $sponsorModel;
+    protected $eventModel;
 
     public function __construct() {
         $this->sponsorModel = new Sponsor();
+        $this->eventModel = new EventModel();
     }
 
     public function index() {
@@ -16,6 +19,7 @@ class SponsorController {
     }
 
     public function create() {
+        $events = $this->eventModel->getAll();
         require_once '../app/views/sponsor/sidebar.php';
         require_once '../app/views/sponsor/create.php';
     }
@@ -36,6 +40,7 @@ class SponsorController {
     }
 
     public function edit($id) {
+        $events = $this->eventModel->getAll();
         $sponsor = $this->sponsorModel->getSponsorById($id);
         require_once '../app/views/sponsor/sidebar.php';
         require_once '../app/views/sponsor/edit.php';
