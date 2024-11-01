@@ -6,77 +6,78 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
-        body {
-            font-size: 15px;
-        }
-        
-        .container {
-            max-width: 1500px;
-            padding: 1.5rem;
-        }
-        
-        .page-title {
-            font-size: 1.5rem;
-            margin-bottom: 1.25rem;
-        }
-        
-        .table {
-            font-size: 1.1rem;
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .table th {
-            font-size: 1.15rem;
-            padding: 1rem 0.8rem;
-            background-color: #f8f9fa;
-            border-bottom: 2px solid #dee2e6;
-            vertical-align: middle;
-        }
-        
-        .table td {
-            padding: 0.8rem;
-            vertical-align: middle;
-        }
-        
-        .btn {
-            font-size: 1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-        }
-        
-        .btn-primary {
-            padding: 0.6rem 1.5rem;
-            font-weight: 500;
-        }
-        
-        .btn-warning, .btn-danger {
-            padding: 0.4rem 1.2rem;
-            margin: 0 0.2rem;
-        }
-        
-        .btn-warning {
-            background-color: #ffc107;
-            border-color: #ffc107;
-            color: #000;
-        }
-        
-        .btn-danger {
-            background-color: #dc3545;
-            border-color: #dc3545;
-            color: white;
-        }
-        
-        .table td:first-child {
-            width: 5%;
-            text-align: center;
-        }
-        
-        .table td:last-child {
-            width: 15%;
-            text-align: center;
-        }
+    body {
+        font-size: 15px;
+    }
+
+    .container {
+        max-width: 1500px;
+        padding: 1.5rem;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .table {
+        font-size: 1.1rem;
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .table th {
+        font-size: 1.15rem;
+        padding: 1rem 0.8rem;
+        background-color: #f8f9fa;
+        border-bottom: 2px solid #dee2e6;
+        vertical-align: middle;
+    }
+
+    .table td {
+        padding: 0.8rem;
+        vertical-align: middle;
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+    }
+
+    .btn-primary {
+        padding: 0.6rem 1.5rem;
+        font-weight: 500;
+    }
+
+    .btn-warning,
+    .btn-danger {
+        padding: 0.4rem 1.2rem;
+        margin: 0 0.2rem;
+    }
+
+    .btn-warning {
+        background-color: #ffc107;
+        border-color: #ffc107;
+        color: #000;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+        color: white;
+    }
+
+    .table td:first-child {
+        width: 5%;
+        text-align: center;
+    }
+
+    .table td:last-child {
+        width: 15%;
+        text-align: center;
+    }
     </style>
 </head>
 
@@ -109,8 +110,10 @@
                     <td><?= htmlspecialchars($sponsor['kontribusi_sponsor']) ?></td>
                     <td>Rp <?= number_format($sponsor['besaran_kontribusi'], 0, ',', '.') ?></td>
                     <td>
-                        <a href="/sponsor/edit?id=<?php echo $sponsor['id_sponsor']; ?>" class="btn btn-warning">Edit</a>
-                        <button onclick="confirmDelete('/sponsor/hapus?id=<?php echo $sponsor['id_sponsor']; ?>')" class="btn btn-danger">Hapus</button>
+                        <a href="/sponsor/edit?id=<?php echo $sponsor['id_sponsor']; ?>"
+                            class="btn btn-warning">Edit</a>
+                        <button onclick="confirmDelete('/sponsor/hapus?id=<?php echo $sponsor['id_sponsor']; ?>')"
+                            class="btn btn-danger">Hapus</button>
                     </td>
                 </tr>
                 <?php endforeach; ?>

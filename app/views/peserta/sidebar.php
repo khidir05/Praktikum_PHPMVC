@@ -56,13 +56,13 @@
                     <a href="/sponsor" class="nav-link">
                         <i class="fas fa-handshake me-2"></i> Sponsors
                     </a>
-                    <a href="/agenda" class="nav-link active">
+                    <a href="/agenda" class="nav-link">
                         <i class="fas fa-calendar-alt me-2"></i> Agenda
                     </a>
                     <a href="/events" class="nav-link">
                         <i class="fas fa-calendar-check me-2"></i> Events
                     </a>
-                    <a href="/peserta" class="nav-link">
+                    <a href="/peserta" class="nav-link active">
                         <i class="fas fa-users me-2"></i> Peserta
                     </a>
                 </div>
@@ -75,15 +75,12 @@
                     <div class="container-fluid">
                         <h5 class="mb-0"><?php 
                         switch($_SERVER['REQUEST_URI']) {
-                            case '/' :
-                                echo 'Daftar agenda Event';
+                            case '/sponsor' :
+                                echo 'Daftar Sponsor Event';
                                 break;
-                            case '/agenda' :
-                                echo 'Daftar agenda Event';
+                            case '/sponsor/create' :
+                                echo  'Tambah Sponsor Baru';
                                 break;
-                            case '/agenda/create' :
-                                echo  'Tambah agenda Baru';
-                                break;    
                         }
                     ?></h5>
                         <button class="btn btn-link">

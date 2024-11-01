@@ -45,18 +45,20 @@ if ($url == '/' || $url == '/sponsor') {
         $eventsController->index();
     } elseif ($url == '/events/create') {
         $eventsController->create();
-    } elseif ($url == '/events/store') {
-        $eventsController->store();
+    // } elseif ($url == '/events/store') {
+    //     $eventsController->store();
     } elseif (strpos($url, '/events/edit') !== false) {
         $id = $_GET['id'];
         $eventsController->edit($id);
-    } elseif ($url == '/events/update') {
-        $eventsController->update();
-    } elseif (strpos($url, '/events/hapus') !== false) {
+    // } elseif ($url == '/events/update') {
+    //     $eventsController->update();
+    } elseif (strpos($url, '/events/delete') !== false) {
         $id = $_GET['id'];
-        $eventsController->hapus($id);
+        $eventsController->delete($id);
     } elseif ($url == '/events') {
         $eventsController->index();
+    } elseif ($url == '/peserta') {
+        $pesertaController->index();
     } elseif ($url == '/peserta/create') {
         $pesertaController->create();
     } elseif ($url == '/peserta/store') {
@@ -66,9 +68,9 @@ if ($url == '/' || $url == '/sponsor') {
         $pesertaController->edit($id);
     } elseif ($url == '/peserta/update') {
         $pesertaController->update();
-    } elseif (strpos($url, '/peserta/hapus') !== false) {
+    } elseif (strpos($url, '/peserta/delete') !== false) {
         $id = $_GET['id'];
-        $pesertaController->hapus($id);
+        $pesertaController->delete($id);
     } else {
         echo "404 Not Found";
     }

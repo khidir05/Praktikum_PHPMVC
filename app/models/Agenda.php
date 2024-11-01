@@ -19,7 +19,7 @@ class Agenda {
     }
 
     public function addAgenda($nama_agenda, $start_date, $end_date, $description, $location) {
-        $query = $this->db->prepare("INSERT INTO agenda (nama, start_date, end_date, description, location) 
+        $query = $this->db->prepare("INSERT INTO agenda (nama_agenda, start_date, end_date, description, location) 
                                       VALUES (:nama, :start_date, :end_date, :description, :location)");
     
         $query->bindParam(':nama',$nama_agenda);
@@ -37,9 +37,9 @@ class Agenda {
         }
     }
 
-    public function updateAgenda($id, $nama, $start_date, $end_date, $description, $location) {
+    public function updateAgenda($id, $nama_agenda, $start_date, $end_date, $description, $location) {
         $query = $this->db->prepare("UPDATE agenda SET 
-                nama = ?, 
+                nama_agenda = ?, 
                 start_date = ?, 
                 end_date = ?, 
                 description = ?,
@@ -47,7 +47,7 @@ class Agenda {
                 WHERE id_agenda = ?");
                 
             $query->execute([
-                $nama,
+                $nama_agenda,
                 $start_date,
                 $end_date,
                 $description,

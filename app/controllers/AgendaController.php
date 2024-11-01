@@ -44,6 +44,7 @@ class AgendaController {
     }
     
     public function update() {
+        $id_agenda = $_POST['id_agenda'];
         $nama_agenda = $_POST['nama_agenda'];
         $start_date = $_POST['start_date'];
         $end_date = $_POST['end_date'];
@@ -51,6 +52,7 @@ class AgendaController {
         $location = $_POST['location'];
     
         $this->agendaModel->updateAgenda(
+            $id_agenda,
                 $nama_agenda,
                 $start_date,
                 $end_date,

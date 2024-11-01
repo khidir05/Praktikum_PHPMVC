@@ -53,10 +53,10 @@
                     <h4 class="text-primary">Admin Panel</h4>
                 </div>
                 <div class="nav flex-column">
-                    <a href="/sponsor" class="nav-link">
+                    <a href="/sponsor" class="nav-link active">
                         <i class="fas fa-handshake me-2"></i> Sponsors
                     </a>
-                    <a href="/agenda" class="nav-link active">
+                    <a href="/agenda" class="nav-link">
                         <i class="fas fa-calendar-alt me-2"></i> Agenda
                     </a>
                     <a href="/events" class="nav-link">
@@ -76,13 +76,16 @@
                         <h5 class="mb-0"><?php 
                         switch($_SERVER['REQUEST_URI']) {
                             case '/' :
-                                echo 'Daftar agenda Event';
+                                echo 'Daftar Event';
                                 break;
-                            case '/agenda' :
-                                echo 'Daftar agenda Event';
+                            case '/events' :
+                                echo 'Daftar Event';
                                 break;
-                            case '/agenda/create' :
-                                echo  'Tambah agenda Baru';
+                            case '/events/add' :
+                                echo  'Tambah Event Baru';
+                                break;
+                            case '/events/edit' :
+                                echo 'Edit Event';
                                 break;    
                         }
                     ?></h5>
